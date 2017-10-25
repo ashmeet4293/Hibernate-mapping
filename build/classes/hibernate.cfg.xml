@@ -1,0 +1,32 @@
+<hibernate-configuration>
+    <session-factory>
+        <!-- Database conneciton Setting -->
+        <property name="hibernate.connection.driver_class"> oracle.jdbc.driver.OracleDriver</property>
+        <property name="hibernate.connection.url"> jdbc:oracle:thin:@localhost:1521:XE</property>
+        <property name="hibernate.connection.username">Student</property>
+        <property name="hibernate.connection.password">system</property>
+        
+        <!--JDBC connection pool -->
+        <property name="hibernate.connection.pool_size">1</property>
+        
+<!--        <property name="cache.user_second_level_cache">true</property>
+        <property name="cache.provider_class">
+            org.hibernate.cache.EhCacheProvider
+        </property>-->
+
+        <!--SQL Dialect -->
+        <property name="hibernate.dialect">org.hibernate.dialect.Oracle10gDialect</property>
+
+        <!--Echo all executed SQL to stdout -->
+        <property name="hibernate.show_sql">true</property>
+        <property name="hibernate.format_sql">false</property>
+        
+        <!--Drop and re-create the database schema on startup -->
+        <property name="hibernate.hbm2ddl.auto">update</property>
+        
+        <!--Name the annoted entity class -->
+        <mapping class="com.hibernate.model.UserDetails"/> 
+        <mapping class="com.hibernate.model.Vehicle" />
+
+    </session-factory>
+</hibernate-configuration>
